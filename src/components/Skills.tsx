@@ -1,6 +1,6 @@
 import { type ReactNode } from 'react';
 import { motion } from 'framer-motion';
-import { SiSalesforce, SiTypescript, SiReact, SiTailwindcss, SiGithub } from 'react-icons/si';
+import { SiSalesforce, SiReact } from 'react-icons/si';
 import { VscServerProcess } from 'react-icons/vsc';
 import { HiOutlineUserGroup } from 'react-icons/hi2';
 

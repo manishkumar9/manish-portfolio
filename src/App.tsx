@@ -1,4 +1,4 @@
-import React, { useState, type ReactNode } from 'react';
+import  { useState, type ReactNode } from 'react';
 import { Layers, Cpu, Cloud, ArrowUpRight, CheckCircle2 } from 'lucide-react';
 
 // Structural interfaces for safe typing

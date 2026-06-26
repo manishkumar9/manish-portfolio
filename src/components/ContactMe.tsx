@@ -1,6 +1,6 @@
 import { useState, type FormEvent, type ReactNode } from 'react';
 import { motion } from 'framer-motion';
-import { SiLinkedin } from 'react-icons/si';
+import { FaLinkedin } from 'react-icons/fa6';
 import { HiOutlineMail } from 'react-icons/hi';
 
 export default function ContactMe(): ReactNode {
@@ -34,7 +34,7 @@ export default function ContactMe(): ReactNode {
         <div className="flex justify-center gap-6 py-4">
           {/* TODO: Exchange with your absolute personal URL indicators */}
           <a href="https://linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn Profile" className="p-3 bg-white/5 border border-white/5 rounded-full text-xl text-gray-400 hover:text-sfElectric hover:border-sfElectric/40 hover:bg-sfDark transition-all duration-300">
-            <SiLinkedin />
+            <FaLinkedin/>
           </a>
           <a href="mailto:your.email@domain.com" aria-label="Email Address" className="p-3 bg-white/5 border border-white/5 rounded-full text-xl text-gray-400 hover:text-sfCyan hover:border-sfCyan/40 hover:bg-sfDark transition-all duration-300">
             <HiOutlineMail />

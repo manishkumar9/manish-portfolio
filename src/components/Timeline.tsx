@@ -9,7 +9,6 @@ interface Job {
 }
 
 export default function Timeline(): ReactNode {
-  // TODO: Update array block items with exact professional roles and milestone dates
   const careerData: Job[] = [
     {
       role: "Salesforce Architect & Lead Developer",
@@ -44,14 +43,14 @@ export default function Timeline(): ReactNode {
   ];
 
   return (
-    <div className="py-24 bg-gradient-to-b from-transparent to-black/20">
+    <div className="py-24 bg-black/[0.01]">
       <div className="max-w-4xl mx-auto px-6">
         <div className="text-center mb-16 space-y-4">
           <h2 className="text-xs font-bold uppercase tracking-widest text-sfElectric">Professional History</h2>
-          <h3 className="text-3xl sm:text-4xl font-extrabold text-white">A Decade of Progression</h3>
+          <h3 className="text-3xl sm:text-4xl font-extrabold text-slate-900">A Decade of Progression</h3>
         </div>
 
-        <div className="relative border-l border-white/10 ml-4 md:ml-32 space-y-12">
+        <div className="relative border-l border-black/10 ml-4 md:ml-32 space-y-12">
           {careerData.map((job, idx) => (
             <motion.div 
               key={idx}
@@ -62,23 +61,23 @@ export default function Timeline(): ReactNode {
               className="relative pl-8 md:pl-12 group"
             >
               {/* Timeline Bullet Anchor */}
-              <div className="absolute left-[-5px] top-1.5 w-2.5 h-2.5 rounded-full bg-sfDark border border-sfElectric group-hover:bg-sfCyan group-hover:scale-125 transition-all duration-300" />
+              <div className="absolute left-[-5px] top-1.5 w-2.5 h-2.5 rounded-full bg-[#f5ebe0] border border-sfElectric group-hover:bg-blue-600 group-hover:scale-125 transition-all duration-300" />
               
               {/* Absolute Time Badge on Wide Viewports */}
-              <div className="hidden md:block absolute left-[-150px] top-1 text-right w-28 text-xs font-mono font-semibold text-gray-500">
+              <div className="hidden md:block absolute left-[-150px] top-1 text-right w-28 text-xs font-mono font-bold text-slate-400">
                 {job.period}
               </div>
 
               {/* Job Narrative Box */}
-              <div className="glass-panel p-6 sm:p-8 rounded-xl transition-all duration-300 hover:border-white/10 group-hover:bg-white/[0.02]">
+              <div className="glass-panel p-6 sm:p-8 rounded-xl transition-all duration-300 hover:border-black/10 hover:shadow-sm group-hover:bg-white/60">
                 <span className="inline-block md:hidden text-xs font-mono text-sfElectric font-semibold mb-2">{job.period}</span>
-                <h4 className="text-xl font-bold text-white tracking-tight">{job.role}</h4>
-                <h5 className="text-sm font-medium text-sfElectric mt-1 mb-4">{job.company}</h5>
+                <h4 className="text-xl font-bold text-slate-900 tracking-tight">{job.role}</h4>
+                <h5 className="text-sm font-semibold text-sfElectric mt-1 mb-4">{job.company}</h5>
                 
-                <ul className="space-y-2.5 text-sm text-gray-400 list-none pl-0">
+                <ul className="space-y-2.5 text-sm text-slate-600 list-none pl-0">
                   {job.highlights.map((bullet, bIdx) => (
                     <li key={bIdx} className="flex items-start gap-2.5 leading-relaxed">
-                      <span className="text-sfElectric mt-1.5 text-xs">▪</span>
+                      <span className="text-sfElectric mt-1 text-xs">▪</span>
                       <span>{bullet}</span>
                     </li>
                   ))}

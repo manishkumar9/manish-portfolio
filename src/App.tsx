@@ -9,11 +9,11 @@ import ContactMe from './components/ContactMe';
 
 export default function App(): ReactNode {
   return (
-    <div className="min-h-screen bg-sfDark text-gray-100 font-sans selection:bg-sfElectric/30 overflow-x-hidden">
-      {/* Background Subtle Mesh Gradient */}
+    <div className="min-h-screen bg-[#f5ebe0] text-slate-800 font-sans selection:bg-sfElectric/20 overflow-x-hidden">
+      {/* Background Ambient Warm/Cool Accents */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-sfElectric/5 blur-[120px]" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-sfCyan/5 blur-[120px]" />
+        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-sfElectric/8 blur-[130px]" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-sfCyan/4 blur-[130px]" />
       </div>
 
       <div className="relative z-10">
@@ -25,7 +25,7 @@ export default function App(): ReactNode {
         <section id="services"><Services /></section>
         <section id="contact"><ContactMe /></section>
         
-        <footer className="py-8 text-center text-xs text-gray-500 border-t border-white/5 bg-sfDark/80 backdrop-blur-md">
+        <footer className="py-8 text-center text-xs text-slate-500 border-t border-black/5 bg-[#f5ebe0]/80 backdrop-blur-md">
           © {new Date().getFullYear()} Manish Kumar. Built with React + TypeScript + Tailwind. Hosted via Cloudflare Pages.
         </footer>
       </div>

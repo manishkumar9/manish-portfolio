@@ -2,29 +2,36 @@
 
 html {
   scroll-behavior: smooth;
-  background-color: #0B0F19;
-  color: #F3F4F6;
+  background-color: #f5ebe0; /* Premium Cream Canvas */
+  color: #1e293b;            /* Dark Slate Text for Crisp Readability */
 }
 
-/* Custom Glassmorphism Utility */
+/* Custom Light Glassmorphism Panel */
 .glass-panel {
-  background: rgba(17, 24, 39, 0.65);
+  background: rgba(255, 255, 255, 0.45);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-/* Custom Scrollbar */
+/* Custom Scrollbar Adjusted for Light Theme */
 ::-webkit-scrollbar {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #0B0F19;
+  background: #f5ebe0;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1F2937;
+  background: #cbd5e1;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #00A1E0;
+}
+
+/* Custom Utility for Background Grid Masking in Light Mode */
+.light-grid-mask {
+  background-image: 
+    linear-gradient(to right, rgba(0, 161, 224, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 161, 224, 0.04) 1px, transparent 1px);
 }

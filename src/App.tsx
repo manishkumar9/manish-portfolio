@@ -187,9 +187,6 @@ export default function App(): ReactNode {
           {/* SECTION 1: HERO */}
           <section id="hero" className="py-24 md:py-32 border-b border-paper-200 relative animate-blueprint-entrance">
             <div className="relative z-10 px-6 py-8 max-w-3xl">
-              <span className="inline-block font-mono text-xs tracking-wider text-ochre uppercase font-semibold mb-4">
-                System Blueprint & Governance
-              </span>
               <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-bold text-ink-900 tracking-tight leading-[1.15] mb-6">
                 Manish Kumar
               </h1>
@@ -218,7 +215,7 @@ export default function App(): ReactNode {
               <div className="flex items-center gap-4">
                 <a 
                   href="#contact" 
-                  className="px-6 py-3 bg-archBlue text-white font-medium text-sm rounded hover:bg-archBlue-hover transition-colors shadow-xs"
+                  className="px-6 py-3 bg-archBlue text-blue font-medium text-sm rounded hover:bg-archBlue-hover transition-colors shadow-xs"
                 >
                   Get In Touch
                 </a>
@@ -421,7 +418,7 @@ export default function App(): ReactNode {
             <div className="flex flex-wrap items-center gap-4">
               <a 
                 href="mailto:Hellomanish0008@gmail.com" 
-                className="inline-flex items-center gap-3 px-8 py-4 bg-archBlue text-white font-medium text-base rounded hover:bg-archBlue-hover transition-colors shadow-xs group"
+                className="inline-flex items-center gap-3 px-8 py-4 bg-archBlue text-blue font-medium text-base rounded hover:bg-archBlue-hover transition-colors shadow-xs group"
               >
                 <span>Hellomanish0008@gmail.com</span>
                 <span className="group-hover:translate-x-1 transition-transform">→</span>

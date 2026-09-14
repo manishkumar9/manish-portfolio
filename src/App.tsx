@@ -17,7 +17,23 @@ const SKILLS = [
   "Technical Governance"
 ];
 
-const CERTIFICATIONS = [
+// Split into Domain and Technical categories
+const DOMAIN_CERTIFICATIONS = [
+  {
+    title: "Salesforce Certified Sales Cloud Consultant",
+    description: "Validates expertise in designing scalable end-to-end sales processes, pipeline management, and opportunity workflows."
+  },
+  {
+    title: "Salesforce Certified Service Cloud Consultant",
+    description: "Covers omni-channel support routing, case management architectures, knowledge bases, and contact center operations."
+  },
+  {
+    title: "Salesforce Accredited Professional - Energy & Utilities Cloud",
+    description: "Specialized accreditation in utility data models, customer service flows, billing integrations, and energy domain solutions."
+  }
+];
+
+const TECHNICAL_CERTIFICATIONS = [
   {
     title: "Salesforce Certified Application Architect",
     description: "Demonstrates deep expertise in data modeling, role hierarchy design, declarative security boundaries, and sharing mechanics at scale."
@@ -47,10 +63,6 @@ const CERTIFICATIONS = [
     description: "Covers foundational AI concepts, ethical data processing, and practical applications of generative AI across Salesforce."
   },
   {
-    title: "Salesforce Accredited Professional - Energy & Utilities Cloud",
-    description: "Specialized accreditation in utility data models, customer service flows, billing integrations, and energy domain solutions."
-  },
-  {
     title: "Energy & Utility Developer I",
     description: "Demonstrates specialized technical skills in building industry-specific software components for energy & utility platforms."
   },
@@ -65,14 +77,6 @@ const CERTIFICATIONS = [
   {
     title: "Salesforce Certified Advanced Administrator",
     description: "Demonstrates mastery over complex security frameworks, advanced analytics, custom automation, and org management."
-  },
-  {
-    title: "Salesforce Certified Sales Cloud Consultant",
-    description: "Validates expertise in designing scalable end-to-end sales processes, pipeline management, and opportunity workflows."
-  },
-  {
-    title: "Salesforce Certified Service Cloud Consultant",
-    description: "Covers omni-channel support routing, case management architectures, knowledge bases, and contact center operations."
   },
   {
     title: "Salesforce Certified Platform Developer I",
@@ -154,7 +158,6 @@ const CASE_STUDIES = [
 // --- MAIN COMPONENT ---
 
 export default function App(): ReactNode {
-  // Form submission handling
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [formStatus, setFormStatus] = useState<'IDLE' | 'SUBMITTING' | 'SUCCESS' | 'ERROR'>('IDLE');
 
@@ -163,7 +166,6 @@ export default function App(): ReactNode {
     setFormStatus('SUBMITTING');
 
     try {
-      // Formspree / Web3Forms endpoint execution
       const response = await fetch('https://formspree.io/f/YOUR_FORMSPREE_ID', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
@@ -207,8 +209,6 @@ export default function App(): ReactNode {
           {/* SECTION 1: HERO */}
           <section id="hero" className="py-24 md:py-32 border-b border-archBlue/10 relative animate-blueprint-entrance">
             <div className="relative z-10 px-6 py-8 max-w-3xl">
-              
-              {/* Heading with SYSTEM BLUEPRINT & GOVERNANCE text removed */}
               <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-bold text-ink-900 tracking-tight leading-[1.15] mb-6">
                 Manish Kumar
               </h1>
@@ -234,7 +234,7 @@ export default function App(): ReactNode {
                 </a>
               </div>
 
-              {/* Floating Rounded Pill Buttons with Green and Blue Text */}
+              {/* Floating Pill Action Buttons */}
               <div className="flex items-center gap-4">
                 <a 
                   href="#contact" 
@@ -347,7 +347,7 @@ export default function App(): ReactNode {
             </div>
           </section>
 
-          {/* SECTION 5: CERTIFICATIONS */}
+          {/* SECTION 5: CERTIFICATIONS (DIVIDED INTO TWO CATEGORIES) */}
           <section id="certifications" className="py-20 border-b border-archBlue/10">
             <div className="flex justify-between items-baseline mb-10">
               <h2 className="font-serif text-2xl sm:text-3xl font-bold text-ink-900">
@@ -358,22 +358,54 @@ export default function App(): ReactNode {
               </span>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
-              {CERTIFICATIONS.map((cert, index) => (
-                <div 
-                  key={index} 
-                  className="glass-card glass-card-hover p-6 rounded-lg flex flex-col justify-between"
-                >
-                  <div>
-                    <h3 className="font-bold text-base text-ink-900 mb-3 leading-snug">
-                      {cert.title}
-                    </h3>
-                    <p className="text-xs text-ink-700 leading-relaxed">
-                      {cert.description}
-                    </p>
+            {/* CATEGORY 1: DOMAIN CERTIFICATIONS */}
+            <div className="mb-12">
+              <h3 className="font-mono text-xs tracking-wider uppercase text-ochre font-semibold mb-6 flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-ochre inline-block" />
+                Domain Certifications
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+                {DOMAIN_CERTIFICATIONS.map((cert, index) => (
+                  <div 
+                    key={index} 
+                    className="glass-card glass-card-hover p-6 rounded-lg flex flex-col justify-between"
+                  >
+                    <div>
+                      <h4 className="font-bold text-base text-ink-900 mb-3 leading-snug">
+                        {cert.title}
+                      </h4>
+                      <p className="text-xs text-ink-700 leading-relaxed">
+                        {cert.description}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
+            </div>
+
+            {/* CATEGORY 2: TECHNICAL CERTIFICATIONS */}
+            <div>
+              <h3 className="font-mono text-xs tracking-wider uppercase text-archBlue font-semibold mb-6 flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-archBlue inline-block" />
+                Technical Certifications
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+                {TECHNICAL_CERTIFICATIONS.map((cert, index) => (
+                  <div 
+                    key={index} 
+                    className="glass-card glass-card-hover p-6 rounded-lg flex flex-col justify-between"
+                  >
+                    <div>
+                      <h4 className="font-bold text-base text-ink-900 mb-3 leading-snug">
+                        {cert.title}
+                      </h4>
+                      <p className="text-xs text-ink-700 leading-relaxed">
+                        {cert.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </section>
 
@@ -519,7 +551,7 @@ export default function App(): ReactNode {
               )}
             </div>
 
-            {/* Bottom Contact Pill Buttons (Email & LinkedIn) */}
+            {/* Bottom Contact Pill Buttons */}
             <div className="flex flex-wrap items-center gap-4 pt-4 border-t border-archBlue/10">
               <a 
                 href="mailto:Hellomanish0008@gmail.com" 
@@ -556,7 +588,7 @@ export default function App(): ReactNode {
                 LinkedIn
               </a>
             </div>
-            
+           
           </div>
         </footer>
       </div>

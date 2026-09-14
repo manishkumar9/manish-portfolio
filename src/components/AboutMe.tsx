@@ -17,7 +17,7 @@ export default function AboutMe(): ReactNode {
           <div className="w-full aspect-square rounded-2xl bg-white/40 border border-black/[0.04] flex flex-col justify-between p-8 glass-panel overflow-hidden relative group shadow-sm">
             <div className="absolute top-0 right-0 w-32 h-32 bg-sfElectric/5 rounded-full blur-2xl group-hover:bg-sfElectric/10 transition-all duration-500" />
             
-            <div className="text-xs font-mono text-slate-400 uppercase tracking-wider">// Senior Tech Leadership</div>
+            <div className="text-xs font-mono text-slate-400 uppercase tracking-wider"> Senior Tech Leadership</div>
             
             <div>
               <div className="text-7xl font-black text-slate-900">10+</div>

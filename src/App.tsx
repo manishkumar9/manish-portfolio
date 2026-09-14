@@ -2,6 +2,12 @@ import { type ReactNode } from 'react';
 
 // --- DATA STRUCTURES ---
 
+const DOMAINS = [
+  "Energy and Utility Cloud",
+  "Sales Cloud",
+  "Service Cloud"
+];
+
 const SKILLS = [
   "Permission & Sharing Architecture",
   "Validation Rule Design",
@@ -14,87 +20,70 @@ const SKILLS = [
 const CERTIFICATIONS = [
   {
     title: "Salesforce Certified Application Architect",
-    tag: "CRT-APP-ARCH",
     description: "Demonstrates deep expertise in data modeling, role hierarchy design, declarative security boundaries, and sharing mechanics at scale."
   },
   {
     title: "Salesforce Certified Data Architecture & Management Designer",
-    tag: "CRT-DATA-ARCH",
     description: "Covers enterprise data governance, large data volume (LDV) management, master data management (MDM), and custom indexing strategies."
   },
   {
     title: "Salesforce Certified Development Lifecycle & Deployment Designer",
-    tag: "CRT-DEPL-DSGN",
     description: "Focuses on environment strategy, sandbox management, automated CI/CD pipelines, package governance, and zero-downtime releases."
   },
   {
     title: "Salesforce Certified Integration Architecture Designer",
-    tag: "CRT-INT-ARCH",
     description: "Validates ability to design complex high-performing enterprise integration solutions across heterogeneous systems."
   },
   {
     title: "Salesforce Certified Sharing & Visibility Designer",
-    tag: "CRT-SHAR-VIS",
     description: "Focuses on complex security requirements, custom Apex sharing, programmatic visibility, and large-scale data access modeling."
   },
   {
     title: "Salesforce Certified Agentforce Specialist",
-    tag: "CRT-AGENTFORCE",
     description: "Validates hands-on knowledge in building, configuring, and deploying autonomous AI agents and prompt templates."
   },
   {
     title: "Salesforce Certified AI Associate",
-    tag: "CRT-AI-ASSOC",
     description: "Covers foundational AI concepts, ethical data processing, and practical applications of generative AI across Salesforce."
   },
   {
     title: "Salesforce Accredited Professional - Energy & Utilities Cloud",
-    tag: "AP-EUC",
     description: "Specialized accreditation in utility data models, customer service flows, billing integrations, and energy domain solutions."
   },
   {
     title: "Energy & Utility Developer I",
-    tag: "SPEC-EU-DEV1",
     description: "Demonstrates specialized technical skills in building industry-specific software components for energy & utility platforms."
   },
   {
     title: "Salesforce Certified Industry CPQ Developer",
-    tag: "CRT-CPQ-DEV",
     description: "Covers complex quoting engines, enterprise product catalogs, pricing rules, and Vlocity/Industry CPQ implementations."
   },
   {
     title: "Salesforce Certified OmniStudio Developer",
-    tag: "CRT-OMNI-DEV",
     description: "Specializes in building declarative digital interfaces using FlexCards, OmniScripts, Integration Procedures, and DataRaptors."
   },
   {
     title: "Salesforce Certified Advanced Administrator",
-    tag: "CRT-ADV-ADMIN",
     description: "Demonstrates mastery over complex security frameworks, advanced analytics, custom automation, and org management."
   },
   {
     title: "Salesforce Certified Sales Cloud Consultant",
-    tag: "CRT-SALES-CON",
     description: "Validates expertise in designing scalable end-to-end sales processes, pipeline management, and opportunity workflows."
   },
   {
     title: "Salesforce Certified Service Cloud Consultant",
-    tag: "CRT-SERV-CON",
     description: "Covers omni-channel support routing, case management architectures, knowledge bases, and contact center operations."
   },
   {
     title: "Salesforce Certified Platform Developer I",
-    tag: "CRT-DEV-1",
     description: "Validates foundational programmatic development using Apex, Lightning Web Components (LWC), Visualforce, and SOQL/SOSL."
   },
   {
     title: "Salesforce Certified Platform App Builder",
-    tag: "CRT-APP-BLDR",
     description: "Covers custom application design using declarative capabilities, custom objects, flow automations, and page layouts."
   },
   {
     title: "Salesforce Certified Administrator",
-    tag: "CRT-ADMIN",
     description: "Core credential establishing proficiency across user management, security configuration, standard objects, and reporting."
   }
 ];
@@ -188,13 +177,6 @@ export default function App(): ReactNode {
         
         {/* SECTION 1: HERO */}
         <section id="hero" className="py-24 md:py-32 border-b border-paper-200 relative animate-blueprint-entrance">
-          <div className="absolute inset-0 blueprint-grid border border-paper-200 rounded-lg pointer-events-none opacity-80" />
-          
-          <div className="absolute top-2 left-2 text-[10px] font-mono text-ink-500 select-none">+ REF-01/SF</div>
-          <div className="absolute top-2 right-2 text-[10px] font-mono text-ink-500 select-none">SCALE 1:1 +</div>
-          <div className="absolute bottom-2 left-2 text-[10px] font-mono text-ink-500 select-none">+ SYS_ARCH</div>
-          <div className="absolute bottom-2 right-2 text-[10px] font-mono text-ink-500 select-none">MK_2026 +</div>
-
           <div className="relative z-10 px-6 py-8 max-w-3xl">
             <span className="inline-block font-mono text-xs tracking-wider text-ochre uppercase font-semibold mb-4">
               System Blueprint & Governance
@@ -208,6 +190,21 @@ export default function App(): ReactNode {
             <p className="text-lg md:text-xl text-ink-700 leading-relaxed font-normal mb-8 max-w-2xl">
               I design resilient, enterprise Salesforce architectures that maintain integrity, security, and peak performance as organizations scale.
             </p>
+
+            {/* Quick Contact Bar */}
+            <div className="flex flex-wrap items-center gap-y-2 gap-x-6 text-xs font-mono text-ink-700 mb-8 border-l-2 border-ochre pl-4">
+              <a href="mailto:Hellomanish0008@gmail.com" className="hover:text-archBlue transition-colors">
+                Hellomanish0008@gmail.com
+              </a>
+              <span className="text-paper-300">|</span>
+              <a href="tel:+919677134852" className="hover:text-archBlue transition-colors">
+                +91 9677134852
+              </a>
+              <span className="text-paper-300">|</span>
+              <a href="https://www.linkedin.com/in/hellomanish0008" target="_blank" rel="noreferrer" className="hover:text-archBlue transition-colors">
+                linkedin.com/in/hellomanish0008
+              </a>
+            </div>
 
             <div className="flex items-center gap-4">
               <a 
@@ -226,7 +223,7 @@ export default function App(): ReactNode {
           </div>
         </section>
 
-        {/* SECTION 2: ABOUT & SKILLS */}
+        {/* SECTION 2: ABOUT, DOMAINS & SKILLS */}
         <section id="about" className="py-20 border-b border-paper-200">
           <div className="max-w-3xl">
             <h2 className="font-serif text-2xl sm:text-3xl font-bold text-ink-900 mb-6">
@@ -241,8 +238,24 @@ export default function App(): ReactNode {
               </p>
             </div>
 
-            <h3 className="font-mono text-xs tracking-wider uppercase text-ink-500 font-semibold mb-4">
-              Core Competencies
+            {/* Primary Domains */}
+            <h3 className="font-mono text-xs tracking-wider uppercase text-ochre font-semibold mb-3">
+              Primary Domain Expertise
+            </h3>
+            <div className="flex flex-wrap gap-2.5 mb-8">
+              {DOMAINS.map((domain, index) => (
+                <span 
+                  key={index}
+                  className="px-3.5 py-1.5 bg-archBlue-light border border-archBlue/20 text-archBlue text-xs sm:text-sm font-semibold rounded"
+                >
+                  {domain}
+                </span>
+              ))}
+            </div>
+
+            {/* Core Competencies */}
+            <h3 className="font-mono text-xs tracking-wider uppercase text-ink-500 font-semibold mb-3">
+              Core Technical Competencies
             </h3>
             <div className="flex flex-wrap gap-2.5">
               {SKILLS.map((skill, index) => (
@@ -284,7 +297,27 @@ export default function App(): ReactNode {
           </div>
         </section>
 
-        {/* SECTION 4: CERTIFICATIONS */}
+        {/* SECTION 4: EDUCATION */}
+        <section id="education" className="py-20 border-b border-paper-200">
+          <h2 className="font-serif text-2xl sm:text-3xl font-bold text-ink-900 mb-8">
+            Academic Background
+          </h2>
+          <div className="bg-white p-6 border border-paper-200 rounded max-w-3xl flex flex-col sm:flex-row justify-between sm:items-center gap-4">
+            <div>
+              <h3 className="text-lg font-bold text-ink-900">
+                Bachelor of Technology (B.Tech)
+              </h3>
+              <p className="text-sm font-medium text-archBlue mt-1">
+                Indraprastha University, New Delhi
+              </p>
+            </div>
+            <div className="font-mono text-xs text-ochre font-semibold bg-paper-100 px-3 py-1.5 rounded w-fit border border-paper-200">
+              AUG 2011 — JUL 2015
+            </div>
+          </div>
+        </section>
+
+        {/* SECTION 5: CERTIFICATIONS */}
         <section id="certifications" className="py-20 border-b border-paper-200">
           <div className="flex justify-between items-baseline mb-10">
             <h2 className="font-serif text-2xl sm:text-3xl font-bold text-ink-900">
@@ -299,13 +332,10 @@ export default function App(): ReactNode {
             {CERTIFICATIONS.map((cert, index) => (
               <div 
                 key={index} 
-                className="bg-white p-5 border border-paper-200 rounded flex flex-col justify-between hover:border-archBlue transition-colors"
+                className="bg-white p-6 border border-paper-200 rounded flex flex-col justify-between hover:border-archBlue transition-colors"
               >
                 <div>
-                  <span className="inline-block font-mono text-[10px] font-semibold text-archBlue bg-archBlue-light px-2 py-0.5 rounded mb-3">
-                    {cert.tag}
-                  </span>
-                  <h3 className="font-bold text-sm text-ink-900 mb-2 leading-snug">
+                  <h3 className="font-bold text-base text-ink-900 mb-3 leading-snug">
                     {cert.title}
                   </h3>
                   <p className="text-xs text-ink-700 leading-relaxed">
@@ -317,7 +347,7 @@ export default function App(): ReactNode {
           </div>
         </section>
 
-        {/* SECTION 5: SELECTED WORK */}
+        {/* SECTION 6: SELECTED WORK */}
         <section id="work" className="py-20 border-b border-paper-200">
           <h2 className="font-serif text-2xl sm:text-3xl font-bold text-ink-900 mb-4">
             Selected Architectural Work
@@ -370,7 +400,7 @@ export default function App(): ReactNode {
           </div>
         </section>
 
-        {/* SECTION 6: CONTACT */}
+        {/* SECTION 7: CONTACT */}
         <section id="contact" className="py-24 max-w-3xl">
           <h2 className="font-serif text-3xl sm:text-4xl font-bold text-ink-900 mb-4">
             Initiate Architecture Discussion
@@ -379,13 +409,21 @@ export default function App(): ReactNode {
             Whether you are planning a large-scale org migration, reviewing security sharing boundaries, or looking to establish release governance—reach out directly.
           </p>
 
-          <div>
+          <div className="flex flex-wrap items-center gap-4">
             <a 
-              href="mailto:hellomanish0008@gmail.com" 
+              href="mailto:Hellomanish0008@gmail.com" 
               className="inline-flex items-center gap-3 px-8 py-4 bg-archBlue text-white font-medium text-base rounded hover:bg-archBlue-hover transition-colors shadow-xs group"
             >
-              <span>hellomanish0008@gmail.com</span>
+              <span>Hellomanish0008@gmail.com</span>
               <span className="group-hover:translate-x-1 transition-transform">→</span>
+            </a>
+            <a 
+              href="https://www.linkedin.com/in/hellomanish0008" 
+              target="_blank" 
+              rel="noreferrer"
+              className="px-6 py-4 border border-paper-300 bg-white text-ink-700 font-medium text-base rounded hover:border-archBlue transition-colors"
+            >
+              LinkedIn Profile
             </a>
           </div>
         </section>
@@ -397,9 +435,6 @@ export default function App(): ReactNode {
         <div className="max-w-5xl mx-auto px-6 text-xs text-ink-500 flex flex-col sm:flex-row justify-between items-center gap-4">
           <div>
             © {new Date().getFullYear()} Manish Kumar. All rights reserved.
-          </div>
-          <div className="font-mono">
-            DEPLOYED VIA CLOUDFLARE PAGES
           </div>
         </div>
       </footer>

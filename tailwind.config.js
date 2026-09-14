@@ -6,16 +6,42 @@ export default {
   ],
   theme: {
     extend: {
-
       colors: {
-  sfDark: '#f5ebe0',     // 🎯 Updated from black to your premium cream color
-  sfCard: 'rgba(255, 255, 255, 0.7)', // Made the glass cards white-tinted instead of dark-tinted
-  sfElectric: '#00A1E0', 
-  sfCyan: '#00F2FE',
-},
-      fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        paper: {
+          50: '#F8F9FA',
+          100: '#F2F4F7',
+          200: '#E4E7EC',
+          300: '#D0D5DD',
+        },
+        ink: {
+          900: '#0F172A',
+          700: '#334155',
+          500: '#64748B',
+        },
+        archBlue: {
+          DEFAULT: '#1A365D',
+          hover: '#0F2342',
+          light: '#EBF2FA',
+        },
+        ochre: {
+          DEFAULT: '#C05621',
+          light: '#FEEBC8',
+        }
       },
+      fontFamily: {
+        serif: ['"Playfair Display"', 'Georgia', 'serif'],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'monospace'],
+      },
+      keyframes: {
+        fadeInBlueprint: {
+          '0%': { opacity: '0', transform: 'translateY(12px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        }
+      },
+      animation: {
+        'blueprint-entrance': 'fadeInBlueprint 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+      }
     },
   },
   plugins: [],

@@ -1,37 +1,28 @@
 @import "tailwindcss";
 
-html {
-  scroll-behavior: smooth;
-  background-color: #f5ebe0; /* Premium Cream Canvas */
-  color: #1e293b;            /* Dark Slate Text for Crisp Readability */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  :focus-visible {
+    outline: 2px solid #1A365D;
+    outline-offset: 4px;
+  }
 }
 
-/* Custom Light Glassmorphism Panel */
-.glass-panel {
-  background: rgba(255, 255, 255, 0.45);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-/* Custom Scrollbar Adjusted for Light Theme */
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: #f5ebe0;
-}
-::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #00A1E0;
-}
-
-/* Custom Utility for Background Grid Masking in Light Mode */
-.light-grid-mask {
+.blueprint-grid {
+  background-size: 32px 32px;
   background-image: 
-    linear-gradient(to right, rgba(0, 161, 224, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 161, 224, 0.04) 1px, transparent 1px);
+    linear-gradient(to right, rgba(26, 54, 93, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(26, 54, 93, 0.05) 1px, transparent 1px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

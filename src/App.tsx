@@ -1,4 +1,4 @@
-import { type ReactNode } from 'react';
+import { useState, type FormEvent, type ReactNode } from 'react';
 
 // --- DATA STRUCTURES ---
 
@@ -154,6 +154,33 @@ const CASE_STUDIES = [
 // --- MAIN COMPONENT ---
 
 export default function App(): ReactNode {
+  // Form submission handling
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [formStatus, setFormStatus] = useState<'IDLE' | 'SUBMITTING' | 'SUCCESS' | 'ERROR'>('IDLE');
+
+  const handleFormSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    setFormStatus('SUBMITTING');
+
+    try {
+      // Formspree / Web3Forms endpoint execution
+      const response = await fetch('https://formspree.io/f/YOUR_FORMSPREE_ID', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        setFormStatus('SUCCESS');
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        setFormStatus('ERROR');
+      }
+    } catch {
+      setFormStatus('ERROR');
+    }
+  };
+
   return (
     <div className="min-h-screen bg-[#FFDBBB] text-ink-900 font-sans relative overflow-x-hidden">
       
@@ -180,9 +207,8 @@ export default function App(): ReactNode {
           {/* SECTION 1: HERO */}
           <section id="hero" className="py-24 md:py-32 border-b border-archBlue/10 relative animate-blueprint-entrance">
             <div className="relative z-10 px-6 py-8 max-w-3xl">
-              <span className="inline-block font-mono text-xs tracking-wider text-ochre uppercase font-semibold mb-4">
-                System Blueprint & Governance
-              </span>
+              
+              {/* Heading with SYSTEM BLUEPRINT & GOVERNANCE text removed */}
               <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-bold text-ink-900 tracking-tight leading-[1.15] mb-6">
                 Manish Kumar
               </h1>
@@ -208,20 +234,22 @@ export default function App(): ReactNode {
                 </a>
               </div>
 
+              {/* Floating Rounded Pill Buttons with Green and Blue Text */}
               <div className="flex items-center gap-4">
                 <a 
                   href="#contact" 
-                  className="px-6 py-3 bg-archBlue text-white font-medium text-sm rounded hover:bg-archBlue-hover transition-colors shadow-xs"
+                  className="px-7 py-3 rounded-full bg-white/90 border border-emerald-500/30 text-emerald-700 font-semibold text-sm hover:bg-emerald-50 hover:border-emerald-500 shadow-sm transition-all duration-300"
                 >
                   Get In Touch
                 </a>
                 <a 
                   href="#work" 
-                  className="px-6 py-3 border border-archBlue/20 glass-card text-ink-700 font-medium text-sm rounded hover:border-archBlue transition-colors"
+                  className="px-7 py-3 rounded-full bg-white/90 border border-sky-500/30 text-sky-700 font-semibold text-sm hover:bg-sky-50 hover:border-sky-500 shadow-sm transition-all duration-300"
                 >
                   View Case Studies
                 </a>
               </div>
+
             </div>
           </section>
 
@@ -402,30 +430,112 @@ export default function App(): ReactNode {
             </div>
           </section>
 
-          {/* SECTION 7: CONTACT */}
+          {/* SECTION 7: CONTACT & EMAIL FORM */}
           <section id="contact" className="py-24 max-w-3xl">
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-ink-900 mb-4">
               Initiate Architecture Discussion
             </h2>
             <p className="text-base sm:text-lg text-ink-700 mb-8 leading-relaxed">
-              Whether you are planning a large-scale org migration, reviewing security sharing boundaries, or looking to establish release governance—reach out directly.
+              Have a project or system architecture query? Send a message directly to my inbox below, or connect via email and LinkedIn.
             </p>
 
-            <div className="flex flex-wrap items-center gap-4">
+            {/* Interactive Form Component */}
+            <div className="glass-card p-8 rounded-xl mb-12">
+              {formStatus === 'SUCCESS' ? (
+                <div className="py-8 text-center space-y-3">
+                  <div className="text-emerald-600 text-3xl font-bold">✓ Message Received</div>
+                  <p className="text-ink-700 text-sm">
+                    Thank you! Your message has been sent directly to my inbox at <span className="font-semibold text-archBlue">Hellomanish0008@gmail.com</span>. I will review and respond shortly.
+                  </p>
+                  <button 
+                    onClick={() => setFormStatus('IDLE')}
+                    className="mt-4 px-4 py-2 text-xs font-mono text-archBlue hover:underline"
+                  >
+                    Send another message
+                  </button>
+                </div>
+              ) : (
+                <form onSubmit={handleFormSubmit} className="space-y-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                      <label htmlFor="name" className="block text-xs font-mono uppercase text-ink-700 font-semibold mb-2">
+                        Your Name
+                      </label>
+                      <input 
+                        required
+                        id="name"
+                        type="text" 
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        placeholder="John Doe"
+                        className="w-full px-4 py-3 rounded-md bg-white/80 border border-archBlue/10 focus:border-archBlue focus:outline-none text-sm text-ink-900 transition-colors"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="email" className="block text-xs font-mono uppercase text-ink-700 font-semibold mb-2">
+                        Your Email
+                      </label>
+                      <input 
+                        required
+                        id="email"
+                        type="email" 
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        placeholder="john@organization.com"
+                        className="w-full px-4 py-3 rounded-md bg-white/80 border border-archBlue/10 focus:border-archBlue focus:outline-none text-sm text-ink-900 transition-colors"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label htmlFor="message" className="block text-xs font-mono uppercase text-ink-700 font-semibold mb-2">
+                      Message / Project Details
+                    </label>
+                    <textarea 
+                      required
+                      id="message"
+                      rows={4}
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      placeholder="Briefly describe your Salesforce architecture requirements or query..."
+                      className="w-full px-4 py-3 rounded-md bg-white/80 border border-archBlue/10 focus:border-archBlue focus:outline-none text-sm text-ink-900 transition-colors resize-none"
+                    />
+                  </div>
+
+                  {formStatus === 'ERROR' && (
+                    <p className="text-xs text-rose-600 font-mono">
+                      Failed to send message automatically. Please click the direct email button below.
+                    </p>
+                  )}
+
+                  <button 
+                    type="submit" 
+                    disabled={formStatus === 'SUBMITTING'}
+                    className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-archBlue text-white font-medium text-sm hover:bg-archBlue-hover transition-colors shadow-sm disabled:opacity-50"
+                  >
+                    {formStatus === 'SUBMITTING' ? 'Sending Message...' : 'Send Message to Inbox'}
+                  </button>
+                </form>
+              )}
+            </div>
+
+            {/* Bottom Contact Pill Buttons (Email & LinkedIn) */}
+            <div className="flex flex-wrap items-center gap-4 pt-4 border-t border-archBlue/10">
               <a 
                 href="mailto:Hellomanish0008@gmail.com" 
-                className="inline-flex items-center gap-3 px-8 py-4 bg-archBlue text-white font-medium text-base rounded hover:bg-archBlue-hover transition-colors shadow-xs group"
+                className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-white/90 border border-emerald-500/30 text-emerald-700 font-medium text-sm hover:bg-emerald-50 hover:border-emerald-500 transition-all shadow-xs"
               >
                 <span>Hellomanish0008@gmail.com</span>
-                <span className="group-hover:translate-x-1 transition-transform">→</span>
+                <span>→</span>
               </a>
               <a 
                 href="https://www.linkedin.com/in/hellomanish0008" 
                 target="_blank" 
                 rel="noreferrer"
-                className="px-6 py-4 glass-card text-ink-700 font-medium text-base rounded hover:border-archBlue transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/90 border border-sky-500/30 text-sky-700 font-medium text-sm hover:bg-sky-50 hover:border-sky-500 transition-all shadow-xs"
               >
-                LinkedIn Profile
+                <span>LinkedIn Profile</span>
+                <span>↗</span>
               </a>
             </div>
           </section>
@@ -435,10 +545,18 @@ export default function App(): ReactNode {
         {/* FOOTER */}
         <footer className="border-t border-archBlue/10 py-8 glass-nav">
           <div className="max-w-5xl mx-auto px-6 text-xs text-ink-500 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <div>
-              © {new Date().getFullYear()} Manish Kumar. All rights reserved.
+            <div className="flex flex-wrap items-center gap-4 text-ink-700 font-mono">
+              <span>© {new Date().getFullYear()} Manish Kumar</span>
+              <span>•</span>
+              <a href="mailto:Hellomanish0008@gmail.com" className="hover:text-archBlue transition-colors">
+                Hellomanish0008@gmail.com
+              </a>
+              <span>•</span>
+              <a href="https://www.linkedin.com/in/hellomanish0008" target="_blank" rel="noreferrer" className="hover:text-archBlue transition-colors">
+                LinkedIn
+              </a>
             </div>
-           
+            
           </div>
         </footer>
       </div>

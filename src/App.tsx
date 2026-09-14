@@ -155,19 +155,19 @@ const CASE_STUDIES = [
 
 export default function App(): ReactNode {
   return (
-    <div className="min-h-screen bg-paper-100 text-ink-900 font-sans relative overflow-x-hidden">
+    <div className="min-h-screen bg-[#FFDBBB] text-ink-900 font-sans relative overflow-x-hidden">
       
-      {/* Ambient Background Gradient Orbs for Glass Refraction */}
+      {/* Ambient Background Blur Elements */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <div className="absolute top-[-10%] left-[-5%] w-[45%] h-[45%] rounded-full bg-archBlue/5 blur-[120px]" />
-        <div className="absolute top-[40%] right-[-10%] w-[50%] h-[50%] rounded-full bg-ochre/5 blur-[140px]" />
-        <div className="absolute bottom-[-10%] left-[20%] w-[45%] h-[45%] rounded-full bg-archBlue/5 blur-[120px]" />
+        <div className="absolute top-[-10%] left-[-5%] w-[45%] h-[45%] rounded-full bg-archBlue/10 blur-[120px]" />
+        <div className="absolute top-[40%] right-[-10%] w-[50%] h-[50%] rounded-full bg-ochre/10 blur-[140px]" />
+        <div className="absolute bottom-[-10%] left-[20%] w-[45%] h-[45%] rounded-full bg-archBlue/10 blur-[120px]" />
       </div>
 
       <div className="relative z-10">
         
         {/* STICKY GLASS NAVIGATION */}
-        <header className="sticky top-0 z-50 glass-nav border-b border-paper-200">
+        <header className="sticky top-0 z-50 glass-nav border-b border-archBlue/10">
           <div className="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#hero" className="font-serif font-bold text-lg text-archBlue hover:text-archBlue-hover tracking-tight">
               Manish Kumar<span className="text-ochre">.</span>
@@ -185,8 +185,9 @@ export default function App(): ReactNode {
         <main className="max-w-5xl mx-auto px-6">
           
           {/* SECTION 1: HERO */}
-          <section id="hero" className="py-24 md:py-32 border-b border-paper-200 relative animate-blueprint-entrance">
+          <section id="hero" className="py-24 md:py-32 border-b border-archBlue/10 relative animate-blueprint-entrance">
             <div className="relative z-10 px-6 py-8 max-w-3xl">
+              
               <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-bold text-ink-900 tracking-tight leading-[1.15] mb-6">
                 Manish Kumar
               </h1>
@@ -202,11 +203,11 @@ export default function App(): ReactNode {
                 <a href="mailto:Hellomanish0008@gmail.com" className="hover:text-archBlue transition-colors">
                   Hellomanish0008@gmail.com
                 </a>
-                <span className="text-paper-300">|</span>
+                <span className="text-archBlue/20">|</span>
                 <a href="tel:+919677134852" className="hover:text-archBlue transition-colors">
                   +91 9677134852
                 </a>
-                <span className="text-paper-300">|</span>
+                <span className="text-archBlue/20">|</span>
                 <a href="https://www.linkedin.com/in/hellomanish0008" target="_blank" rel="noreferrer" className="hover:text-archBlue transition-colors">
                   linkedin.com/in/hellomanish0008
                 </a>
@@ -215,13 +216,13 @@ export default function App(): ReactNode {
               <div className="flex items-center gap-4">
                 <a 
                   href="#contact" 
-                  className="px-6 py-3 bg-archBlue text-blue font-medium text-sm rounded hover:bg-archBlue-hover transition-colors shadow-xs"
+                  className="px-6 py-3 bg-archBlue text-white font-medium text-sm rounded hover:bg-archBlue-hover transition-colors shadow-xs"
                 >
                   Get In Touch
                 </a>
                 <a 
                   href="#work" 
-                  className="px-6 py-3 border border-paper-300 glass-card text-ink-700 font-medium text-sm rounded hover:border-archBlue transition-colors"
+                  className="px-6 py-3 border border-archBlue/20 glass-card text-ink-700 font-medium text-sm rounded hover:border-archBlue transition-colors"
                 >
                   View Case Studies
                 </a>
@@ -230,7 +231,7 @@ export default function App(): ReactNode {
           </section>
 
           {/* SECTION 2: ABOUT, DOMAINS & SKILLS */}
-          <section id="about" className="py-20 border-b border-paper-200">
+          <section id="about" className="py-20 border-b border-archBlue/10">
             <div className="max-w-3xl">
               <h2 className="font-serif text-2xl sm:text-3xl font-bold text-ink-900 mb-6">
                 Architectural Approach
@@ -277,7 +278,7 @@ export default function App(): ReactNode {
           </section>
 
           {/* SECTION 3: EXPERIENCE */}
-          <section id="experience" className="py-20 border-b border-paper-200">
+          <section id="experience" className="py-20 border-b border-archBlue/10">
             <h2 className="font-serif text-2xl sm:text-3xl font-bold text-ink-900 mb-12">
               Professional History
             </h2>
@@ -304,7 +305,7 @@ export default function App(): ReactNode {
           </section>
 
           {/* SECTION 4: EDUCATION */}
-          <section id="education" className="py-20 border-b border-paper-200">
+          <section id="education" className="py-20 border-b border-archBlue/10">
             <h2 className="font-serif text-2xl sm:text-3xl font-bold text-ink-900 mb-8">
               Academic Background
             </h2>
@@ -317,14 +318,14 @@ export default function App(): ReactNode {
                   Indraprastha University, New Delhi
                 </p>
               </div>
-              <div className="font-mono text-xs text-ochre font-semibold bg-paper-100/80 px-3 py-1.5 rounded w-fit border border-paper-200">
+              <div className="font-mono text-xs text-ochre font-semibold bg-white/60 px-3 py-1.5 rounded w-fit border border-archBlue/10">
                 AUG 2011 — JUL 2015
               </div>
             </div>
           </section>
 
-          {/* SECTION 5: CERTIFICATIONS (GLASS CARDS) */}
-          <section id="certifications" className="py-20 border-b border-paper-200">
+          {/* SECTION 5: CERTIFICATIONS */}
+          <section id="certifications" className="py-20 border-b border-archBlue/10">
             <div className="flex justify-between items-baseline mb-10">
               <h2 className="font-serif text-2xl sm:text-3xl font-bold text-ink-900">
                 Credentials & Certifications
@@ -353,8 +354,8 @@ export default function App(): ReactNode {
             </div>
           </section>
 
-          {/* SECTION 6: SELECTED WORK (GLASS PANELS) */}
-          <section id="work" className="py-20 border-b border-paper-200">
+          {/* SECTION 6: SELECTED WORK */}
+          <section id="work" className="py-20 border-b border-archBlue/10">
             <h2 className="font-serif text-2xl sm:text-3xl font-bold text-ink-900 mb-4">
               Selected Architectural Work
             </h2>
@@ -392,7 +393,7 @@ export default function App(): ReactNode {
                       </p>
                     </div>
 
-                    <div className="border-l-2 border-paper-300 pl-4">
+                    <div className="border-l-2 border-archBlue/20 pl-4">
                       <span className="block font-mono text-xs uppercase tracking-wider text-ink-900 font-semibold mb-2">
                         03. Outcome
                       </span>
@@ -418,7 +419,7 @@ export default function App(): ReactNode {
             <div className="flex flex-wrap items-center gap-4">
               <a 
                 href="mailto:Hellomanish0008@gmail.com" 
-                className="inline-flex items-center gap-3 px-8 py-4 bg-archBlue text-blue font-medium text-base rounded hover:bg-archBlue-hover transition-colors shadow-xs group"
+                className="inline-flex items-center gap-3 px-8 py-4 bg-archBlue text-white font-medium text-base rounded hover:bg-archBlue-hover transition-colors shadow-xs group"
               >
                 <span>Hellomanish0008@gmail.com</span>
                 <span className="group-hover:translate-x-1 transition-transform">→</span>
@@ -437,12 +438,11 @@ export default function App(): ReactNode {
         </main>
 
         {/* FOOTER */}
-        <footer className="border-t border-paper-200 py-8 glass-nav">
+        <footer className="border-t border-archBlue/10 py-8 glass-nav">
           <div className="max-w-5xl mx-auto px-6 text-xs text-ink-500 flex flex-col sm:flex-row justify-between items-center gap-4">
             <div>
               © {new Date().getFullYear()} Manish Kumar. All rights reserved.
             </div>
-            
           </div>
         </footer>
       </div>

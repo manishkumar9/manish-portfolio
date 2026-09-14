@@ -12,30 +12,29 @@
   }
 }
 
-/* Custom Glassmorphism Utilities tailored for #FFDBBB background */
+/* Optimized Lightweight Glass Panel Utilities */
 .glass-card {
-  background: rgba(255, 255, 255, 0.55);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(26, 54, 93, 0.08);
-  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04);
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(26, 54, 93, 0.1);
+  box-shadow: 0 4px 12px -2px rgba(15, 23, 42, 0.03);
+  will-change: transform;
 }
 
 .glass-card-hover {
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .glass-card-hover:hover {
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.92);
   border-color: #1A365D;
-  box-shadow: 0 10px 30px -4px rgba(26, 54, 93, 0.12);
+  box-shadow: 0 8px 24px -4px rgba(26, 54, 93, 0.1);
   transform: translateY(-2px);
 }
 
 .glass-nav {
-  background: rgba(255, 219, 187, 0.82);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(255, 219, 187, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 @media (prefers-reduced-motion: reduce) {

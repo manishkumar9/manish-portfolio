@@ -157,16 +157,9 @@ export default function App(): ReactNode {
   return (
     <div className="min-h-screen bg-[#FFDBBB] text-ink-900 font-sans relative overflow-x-hidden">
       
-      {/* Ambient Background Blur Elements */}
-      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <div className="absolute top-[-10%] left-[-5%] w-[45%] h-[45%] rounded-full bg-archBlue/10 blur-[120px]" />
-        <div className="absolute top-[40%] right-[-10%] w-[50%] h-[50%] rounded-full bg-ochre/10 blur-[140px]" />
-        <div className="absolute bottom-[-10%] left-[20%] w-[45%] h-[45%] rounded-full bg-archBlue/10 blur-[120px]" />
-      </div>
-
       <div className="relative z-10">
         
-        {/* STICKY GLASS NAVIGATION */}
+        {/* STICKY NAVIGATION */}
         <header className="sticky top-0 z-50 glass-nav border-b border-archBlue/10">
           <div className="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#hero" className="font-serif font-bold text-lg text-archBlue hover:text-archBlue-hover tracking-tight">
@@ -187,7 +180,9 @@ export default function App(): ReactNode {
           {/* SECTION 1: HERO */}
           <section id="hero" className="py-24 md:py-32 border-b border-archBlue/10 relative animate-blueprint-entrance">
             <div className="relative z-10 px-6 py-8 max-w-3xl">
-              
+              <span className="inline-block font-mono text-xs tracking-wider text-ochre uppercase font-semibold mb-4">
+                System Blueprint & Governance
+              </span>
               <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-bold text-ink-900 tracking-tight leading-[1.15] mb-6">
                 Manish Kumar
               </h1>
@@ -253,7 +248,7 @@ export default function App(): ReactNode {
                 {DOMAINS.map((domain, index) => (
                   <span 
                     key={index}
-                    className="px-3.5 py-1.5 bg-archBlue-light/80 backdrop-blur-md border border-archBlue/20 text-archBlue text-xs sm:text-sm font-semibold rounded"
+                    className="px-3.5 py-1.5 bg-archBlue-light border border-archBlue/20 text-archBlue text-xs sm:text-sm font-semibold rounded"
                   >
                     {domain}
                   </span>
@@ -443,6 +438,7 @@ export default function App(): ReactNode {
             <div>
               © {new Date().getFullYear()} Manish Kumar. All rights reserved.
             </div>
+           
           </div>
         </footer>
       </div>
